@@ -439,20 +439,11 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
--- nerdtree config
-NERDTreeWinSize = 55
-vim.api.nvim_command "autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif "
-
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
-vim.keymap.set('n', '<leader>n', ':NERDTreeFocus<CR>', { desc = '[N]erdtree Focus' })
-vim.keymap.set('n', '<C-n>', ':NERDTree<CR>', { desc = '[N]erdtree' })
-vim.keymap.set('n', '<C-t>', ':NERDTreeToggle<CR>', { desc = 'Nerdtree [T]oggle' })
-vim.keymap.set('n', '<C-f>', ':NERDTreeFind<CR>', { desc = 'Nerdtree [F]ind' })
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.

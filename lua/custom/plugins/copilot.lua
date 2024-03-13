@@ -33,11 +33,18 @@ return {
     cmd = 'Copilot',
     event = 'InsertEnter',
     config = function()
+      local isWindows = (vim.fn.has 'win32') == 1
+      local node_path = nil
+      if isWindows then
+        node_path = 'C:/ProgramData/nvm/v18.19.0/node.exe'
+      else
+        node_path = '/home/dioxo/.nvm/versions/node/v18.19.1/bin/node'
+      end
       require('copilot').setup {
         suggestion = {
           auto_trigger = true,
         },
-          copilot_node_command = 'C:/ProgramData/nvm/v18.19.0/node.exe',
+        copilot_node_command = node_path,
       }
     end,
   },
